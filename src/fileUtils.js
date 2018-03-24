@@ -21,6 +21,8 @@
     }
 }(this, function () {
 
+    const CRLF = '\r\n';
+    const LF = '\n';
     /**
      * read file synchronous
      ** @param fileName - the name of the text file
@@ -31,7 +33,8 @@
                 throw new Error('Wrong file type!');
             }
             var txt = fileSystem.readFileSync(fileName, 'utf-8');
-            var data = txt.split("\r\n").filter(Boolean);
+            var lineSeparator = txt.indexOf(CRLF) > -1 ? CRLF : LF;
+            var data = txt.split(lineSeparator).filter(Boolean);
             return data;
         }
     };
