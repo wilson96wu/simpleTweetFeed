@@ -1,0 +1,26 @@
+{
+  "name": "simpletweetfeed",
+  "version": "1.0.0",
+  "description": "A simple tweeter feed demo with unit test",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wilson96wu/simpleTweetFeed.git"
+  },
+  "keywords": [
+    "tweeter",
+    "feed",
+    "mocha",
+    "sinon",
+    "chai"
+  ],
+  "author": "Wilson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wilson96wu/simpleTweetFeed/issues"
+  },
+  "homepage": "https://github.com/wilson96wu/simpleTweetFeed#readme"
+}
