@@ -36,6 +36,13 @@ describe("fileUtils test suite", function () {
         expect(utils.readFile('../data/user.txt', fs)).to.be.a('array');
     });
 
+    it("should handle LF (line feed)", function () {
+        sandbox.stub(fs, 'readFileSync').callsFake(function (path, fs) {
+            return "Ward follows Alan \n Alan follows Martin\n Ward follows Martin, Alan";
+        });
+        expect(utils.readFile('../data/user.txt', fs)).to.have.lengthOf(3);
+    });
+
     it("should return 3 records", function () {
         sandbox.stub(fs, 'readFileSync').callsFake(function (path, fs) {
             return "Ward follows Alan \r\n Alan follows Martin\r\nWard follows Martin, Alan";

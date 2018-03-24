@@ -2,9 +2,9 @@
  * Created by WilsonW on 3/23/2018.
  */
 
-var chai = require('../node_modules/chai/chai');
+var chai = require('chai');
 var expect = chai.expect;
-var should = require('chai').should();
+var should = chai.should();
 var TweetProcessor = require('../src/tweetProcessor');
 var ErrorCode = require('../src/errorCode');
 

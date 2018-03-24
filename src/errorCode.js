@@ -27,15 +27,16 @@
      *  Range of tweet Error data is between 10001 - 19999
      */
     return {
-        "10001": "USER DATA -- Record do not contain key word ' follows '",
+        "10001": "USER DATA -- Record do not contain keyword ' follows '",
         "10002": "USER DATA -- Record do not have a follower or followings section",
         "10003": "USER DATA -- Record do not have a valid name section",
         "10004": "USER DATA -- Record name starts with a number",
-        "10005": "USER DATA -- Record do not valid following section",
+        "10005": "USER DATA -- Record do not have a valid following section",
         "10006": "USER DATA -- Record followings section starts with a number",
         "10007": "USER DATA -- Users data is not valid type, need an Array",
+        "10008": "USER DATA -- Valid name is not provided when create Users data",
 
-        "20001": "TWEET DATA -- Record do not contain key word ' > '",
+        "20001": "TWEET DATA -- Record do not contain keyword ' > '",
         "20002": "TWEET DATA -- Record do not have name or message section",
         "20003": "TWEET DATA -- Record do not have a valid name section",
         "20004": "TWEET DATA -- Record name starts with a number",

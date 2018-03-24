@@ -20,14 +20,22 @@
 
     /** Class UserData represent a tweeter's user information */
 
+    var ErrorCode = require('./errorCode');
     /**
      * Create UserData, Constructor
      * @param {string} name - tweeter's name
      */
     var UserData = function (name) {
-        this.name = name;
-        this.followings = [];
-        this.followers = [];
+        try {
+            _validateName(name);
+            this.name = name;
+            this.followings = [];
+            this.followers = [];
+        }
+        catch (e){
+            console.error(e.message);
+            throw e;
+        }
     };
 
     var Pub = UserData.prototype;
@@ -38,8 +46,15 @@
      * @param {string} follower - follower's name
      */
     Pub.addFollower = function (follower) {
-        if (this.followers.indexOf(follower) == -1) {
-            this.followers.push(follower);
+        try {
+            _validateName(follower);
+            if (this.followers.indexOf(follower) == -1) {
+                this.followers.push(follower);
+            }
+        }
+        catch (e){
+            console.error(e.message);
+            throw e;
         }
     };
 
@@ -49,10 +64,27 @@
      * @param {string} leader - leader's name
      */
     Pub.addLeader = function (leader) {
-        if (this.followings.indexOf(leader) == -1) {
-            this.followings.push(leader);
+        try {
+            _validateName(leader);
+            if (this.followings.indexOf(leader) == -1) {
+                this.followings.push(leader);
+            }
+        }
+        catch (e){
+            console.error(e.message);
+            throw e;
         }
     };
 
+    /**
+     * private method _validateName
+     * checking if a valid name is provided
+     * @param {string} name - a user name
+     */
+    var _validateName = function (name) {
+        if (!name || name == "" || typeof name !== 'string' || (typeof name === 'string' && name.match(/^\d/))) {
+            throw new Error(ErrorCode['10008']);
+        }
+    };
     return UserData;
 }));

@@ -4,7 +4,9 @@
   "description": "A simple tweeter feed demo with unit test",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "start": "node ./index.js",
+    "test": "mocha './test/**/*_test.js'",
+    "test-gulp": "gulp"
   },
   "repository": {
     "type": "git",
