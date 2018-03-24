@@ -22,7 +22,6 @@
      * Class UserProcessor
      * this Class is designed to process user data from user.txt file
      */
-
     var UserData = require('./userData');
     var ErrorCode = require('./errorCode');
 
@@ -30,10 +29,11 @@
 
     };
     var Pub = UserProcessor.prototype;
+
     /**
-     * read file synchronous
-     ** @param usersData - the name of the text file
-     *  @returns {object} - the userMap contains all users which name mapped to userData {name, followers, followings}
+     * Public function, Process user Data from user.txt file
+     ** @param {Array} usersData - the raw data which represents each line of the text file
+     *  @returns {object} usersMap - the userMap contains all users which with their name mapped to userData {name, followers, followings}
      */
     Pub.processData = function (usersData) {
         if (!Array.isArray(usersData)) {
@@ -49,11 +49,10 @@
 
     /**
      * private method _processRecord
-     * processing each line of user record to update usersMap
-     * @param record - line of record
-     * @param usersMap - userMap contains all users which name mapped to userData {name, followers, followings}
+     * processing a single line of user record to update usersMap
+     * @param {string} record - a single line of record
+     * @param {object} usersMap - userMap contains all users which name mapped to userData {name, followers, followings}
      */
-
     var _processRecord = function (record, usersMap) {
 
         try {
@@ -68,32 +67,29 @@
                 var LeaderName = leaderNames[i].trim();
                 var leader = _createUser(LeaderName, usersMap);
                 leader.addFollower(followerName);
-                follower.addFollowing(LeaderName);
+                follower.addLeader(LeaderName);
             }
         } catch (e) {
-            console.log(e.message);
+            console.error(e.message);
             throw e;
         }
-
     };
 
     /**
      * private method _validateRecord
      * checking all the rules for each line of user records
-     * @param record - line of record
+     * @param {string} record - a single line of record
      */
-
     var _validateRecord = function (record) {
         _rule_containKeyWord(record, ' follows ');
-        _rule_hasValidNameAndFollowing(record, ' follows ');
+        _rule_hasValidFollowerAndLeaders(record, ' follows ');
     };
 
     /**
      * private method _rule_containKeyWord
      * check if this record contain key words ' follows '
-     * @param record - line of record
+     * @param {string} record - a single line of record
      */
-
     var _rule_containKeyWord = function (record, keyword) {
         if (record.indexOf(keyword) === -1) {
             //"10001": "USER DATA -- Record do not contain key word ' follows '",
@@ -101,7 +97,14 @@
         }
     };
 
-    var _rule_hasValidNameAndFollowing = function (record, keyword) {
+    /**
+     * private method _rule_hasValidFollowerAndLeaders
+     * check if this record has valid name and message
+     * if not then throw corresponding Errors
+     * @param {string} record - a single line of tweet record
+     * @param {string} keyword - keyword which must exist in the record
+     */
+    var _rule_hasValidFollowerAndLeaders = function (record, keyword) {
         var userArray = record.split(keyword);
         if (userArray.length !== 2) {
             //"10002": "USER DATA -- Record do not have a follower or followings section",
@@ -130,6 +133,13 @@
     };
 
 
+    /**
+     * private method _createUser
+     * check if user exist, if not, then create a new userData add it to the map
+     * @param {string} name - tweeter's name
+     * @param {object} usersMap - userMap contains all users which name mapped to userData {name, followers, followings}
+     * @returns {UserData} userData - a UserData contains {name, followers, followings}
+     */
     var _createUser = function (name, usersMap) {
         if (usersMap[name] === undefined) {
             usersMap[name] = new UserData(name);

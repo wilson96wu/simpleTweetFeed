@@ -18,6 +18,13 @@
     }
 }(this, function () {
 
+    /** Class TweetData represent a tweet message  */
+
+    /**
+     * Create TweetData, Constructor
+     * @param {string} name - tweeter's name
+     * @param {string} message - tweeter's name
+     */
     var TweetData = function (name, message) {
         this.name = name;
         this.message = message;

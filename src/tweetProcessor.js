@@ -28,13 +28,13 @@
     const MAX_MESSAGE_LENGTH = 140;
 
     var TweetProcessor = function () {
-
     };
+
     var Pub = TweetProcessor.prototype;
     /**
-     * Process Tweet Data from tweet.txt file
-     ** @param tweetsData - the name of the text file
-     *  @returns {object} - the userMap contains all users which name mapped to userData {name, followers, followings}
+     * Public function, Process Tweet Data from tweet.txt file
+     * @param {Array} tweetsData - the raw data which represents each line of the text file
+     * @returns {Array} tweets - processed data contains an array of TweetData object {name, message}
      */
     Pub.processData = function (tweetsData) {
         if (!Array.isArray(tweetsData)) {
@@ -51,33 +51,28 @@
 
     /**
      * private method _processRecord
-     * processing each line of user record to update usersMap
-     * @param record - line of record
-     * @returns {TweetData} - the tweetData contains userName and message}
+     * processing a single line of tweet record
+     * @param {string} record - a single line of tweet record
+     * @returns {TweetData} - the tweetData contains userName and message
      */
-
     var _processRecord = function (record) {
         try {
             _validateRecord(record);
-
             var tweet = record.split("> ");
             var name = tweet[0].trim();
             var message = tweet[1].trim();
-
             return new TweetData(name, message);
         } catch (e) {
-            console.log(e.message);
+            console.error(e.message);
             throw e;
         }
-
     };
 
     /**
      * private method _validateRecord
-     * checking all the rules for each line of user records
-     * @param record - line of record
+     * checking all the rules for each line of tweet record
+     * @param {string} record - a single line of tweet record
      */
-
     var _validateRecord = function (record) {
         _rule_containKeyWord(record, '> ');
         _rule_hasValidNameAndMessage(record, '> ');
@@ -85,9 +80,10 @@
 
     /**
      * private method _rule_containKeyWord
-     * check if this record contain key words ' follows '
+     * check if this record contain key words '> '
      * if not then throw error 20001
-     * @param record - line of record
+     * @param {string} record - a single line of tweet record
+     * @param {string} keyword - keyword which must exist in the record
      */
 
     var _rule_containKeyWord = function (record, keyword) {
@@ -99,8 +95,10 @@
 
     /**
      * private method _rule_hasValidNameAndMessage
-     * check if this record contain key words ' follows '
-     * @param record - line of record
+     * check if this record has valid name and message
+     * if not then throw corresponding Errors
+     * @param {string} record - a single line of tweet record
+     * @param {string} keyword - keyword which must exist in the record
      */
     var _rule_hasValidNameAndMessage = function (record, keyword) {
         var tweet = record.split(keyword);

@@ -14,6 +14,9 @@
         root.user = factory();
     }
 }(this, function () {
+
+    /** Class App is the main file for this application  */
+
     var fileUtils = require('./fileUtils');
     var UserProcessor = require('./userProcessor');
     var TweetProcessor = require('./tweetProcessor');
@@ -21,12 +24,20 @@
     const tweetFilePath = './data/tweet.txt';
     var fileSystem;
 
+    /**
+     * Create App, Constructor
+     * @param {fileSystem} fs - file system that read and write files
+     */
     var App = function (fs) {
         fileSystem = fs;
     };
 
     var Pub = App.prototype;
 
+    /**
+     * Start the App
+     * process input user file and tweet file and print result in console
+     */
     Pub.start = function () {
         var userMap = _processUserFile(userFilePath);
         var tweets = _processTweetFile(tweetFilePath);
@@ -34,6 +45,11 @@
     };
 
 
+    /**
+     * Private function, process the user file
+     * @param {string} path - path to user file
+     * @return {object} userMap - map of user name to user data, contains followings and follower relationships
+     */
     var _processUserFile = function (path) {
         var userData = fileUtils.readFile(path, fileSystem);
         var userProcessor = new UserProcessor();
@@ -41,6 +57,11 @@
         return userMap;
     };
 
+    /**
+     * Private function, process the tweet file
+     * @param {string} path - path to tweet file
+     * @return {Array} tweets - array of tweeted messages, contains tweeter's name and message
+     */
     var _processTweetFile = function (path) {
         var tweetData = fileUtils.readFile(path, fileSystem);
         var tweetProcessor = new TweetProcessor();
@@ -48,6 +69,11 @@
         return tweets
     };
 
+    /**
+     * Private function, print the result of tweet messages
+     * @param {object} userMap - - map of user name to user data, contains followings and follower relationships
+     * @param {Array} tweets - array of tweeted messages, contains tweeter's name and message
+     */
     var _printResults = function (userMap, tweets) {
         var keys = Object.keys(userMap);
         keys.sort();

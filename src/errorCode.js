@@ -23,8 +23,10 @@
 
     /**
      *  Definition of all the Error code
+     *  Range of User Error data is between 10001 - 19999
+     *  Range of tweet Error data is between 10001 - 19999
      */
-    var ErrorCode = {
+    return {
         "10001": "USER DATA -- Record do not contain key word ' follows '",
         "10002": "USER DATA -- Record do not have a follower or followings section",
         "10003": "USER DATA -- Record do not have a valid name section",
@@ -40,6 +42,5 @@
         "20005": "TWEET DATA -- Record do not valid message section",
         "20006": "TWEET DATA -- Record message is too long",
         "20007": "TWEET DATA -- Tweets data is not valid type, need an Array"
-    }
-    return ErrorCode;
+    };
 }));

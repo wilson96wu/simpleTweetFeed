@@ -18,6 +18,12 @@
     }
 }(this, function () {
 
+    /** Class UserData represent a tweeter's user information */
+
+    /**
+     * Create UserData, Constructor
+     * @param {string} name - tweeter's name
+     */
     var UserData = function (name) {
         this.name = name;
         this.followings = [];
@@ -26,15 +32,25 @@
 
     var Pub = UserData.prototype;
 
+    /**
+     * Public function, add a follower to this user
+     * if the follower does not exist, push into follower's array
+     * @param {string} follower - follower's name
+     */
     Pub.addFollower = function (follower) {
         if (this.followers.indexOf(follower) == -1) {
             this.followers.push(follower);
         }
     };
 
-    Pub.addFollowing = function (following) {
-        if (this.followings.indexOf(following) == -1) {
-            this.followings.push(following);
+    /**
+     * Public function, add a person whom this user is following
+     * if the person does not exist, push into following's array
+     * @param {string} leader - leader's name
+     */
+    Pub.addLeader = function (leader) {
+        if (this.followings.indexOf(leader) == -1) {
+            this.followings.push(leader);
         }
     };
 
