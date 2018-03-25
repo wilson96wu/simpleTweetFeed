@@ -2,7 +2,6 @@
  * Created by WilsonW on 3/23/2018.
  */
 var chai = require('chai');
-var expect = chai.expect;
 var should = chai.should();
 var TweetData = require('../../../src/components/tweet/tweetData');
 var ErrorCode = require('../../../src/enums/errorCode');

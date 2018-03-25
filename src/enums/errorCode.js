@@ -44,6 +44,9 @@
         "20005": "Error 20005: TWEET DATA -- Record do not valid message section",
         "20006": "Error 20006: TWEET DATA -- Record message is too long",
         "20007": "Error 20007: TWEET DATA -- Tweets data is not valid type, need an Array",
-        "20008": "Error 20008: TWEET DATA -- Not right number of arguments for Tweet data"
+        "20008": "Error 20008: TWEET DATA -- Not right number of arguments for Tweet data",
+
+        "30001": "Error 30001: Feeder -- Not right number of arguments for Feeder"
+
     };
 }));
