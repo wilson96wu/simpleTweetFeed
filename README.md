@@ -3,12 +3,12 @@
 A simple tweet feed with unit test and Istanbul code coverage.
 This project is inspired by https://github.com/gabel/karma-webpack-example
 ```
-##Prerequisite
+## Prerequisite
 
 ```
 Need to install NodeJs, this demo App is tested on NodeJs 8.9.4.
 ```
-##Description
+## Description
 
 ```
 This app will take a list of tweeters in one text file and a list of tweets in another text file, 
@@ -17,7 +17,7 @@ and his/her tweets in alphabetical order. This app will also purge all the tweet
 by any of the tweeters in the list.
 
 ```
-##Installation
+## Installation
 
 ```
 npm install
