@@ -120,7 +120,7 @@
         };
 
     /**
-     * Private function, _purgeTweets. Purge the tweets which is not part of the user map
+     * Private function, _purgeTweets. Purge the tweets which is not tweeted by anyone in the user map
      * @param {Array} users - - all the users' name
      * @param {Array} tweets - array of tweeted messages, contains tweeter's name and message
      * @return {Array} the new array which contains only valid tweets
