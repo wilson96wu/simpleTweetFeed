@@ -41,7 +41,7 @@
             this.message = message;
 
         } catch (e) {
-            console.error(e.message);
+            //console.error(e.message);
             throw e;
         }
     };
