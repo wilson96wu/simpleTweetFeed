@@ -21,7 +21,10 @@ by any of the tweeters in the list.
 
 ```
 npm install
+
 ```
+Might take a bit long to install, please be patient
+
 ## Run
 
 ```
