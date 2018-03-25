@@ -1,3 +1,4 @@
+'use strict';
 /**
  * AMD, CommonJS, Global compatible Script Wrapper
  * https://github.com/umdjs/umd
@@ -14,15 +15,15 @@
         module.exports = factory();
     } else {
         // Browser globals (root is window)
-        root.user = factory();
+        root.UserData = factory();
     }
 }(this, function () {
 
     /** Class UserData represent a tweeter's user information */
 
-    var ErrorCode = require('./errorCode');
+    var ErrorCode = require('../../enums/errorCode');
     /**
-     * Create UserData, Constructor
+     * @Constructor Create UserData
      * @param {string} name - tweeter's name
      */
     var UserData = function (name) {

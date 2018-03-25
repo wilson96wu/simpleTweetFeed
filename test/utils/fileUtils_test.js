@@ -1,11 +1,11 @@
 /**
  * Created by WilsonW on 3/23/2018.
  */
-var chai = require('../node_modules/chai/chai');
+var chai = require('chai');
 var sinon = require('sinon');
 var expect = chai.expect;
-var should = require('chai').should();
-var utils = require('../src/fileUtils');
+var should = chai.should();
+var utils = require('../../src/utils/fileUtils');
 
 var sandbox, fs;
 describe("fileUtils test suite", function () {

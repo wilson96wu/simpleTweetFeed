@@ -3,12 +3,12 @@
  */
 var chai = require('../node_modules/chai/chai');
 var expect = chai.expect;
-var App = require('../src/app');
+var App = require('../src/tweetFeeder');
 
 
 describe("App test suite", function () {
     it("should have a public method start", function () {
         var processor = new App();
-        expect(processor.start).to.be.a('function');
+        expect(processor.processFeed).to.be.a('function');
     });
 });

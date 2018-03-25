@@ -1,6 +1,11 @@
 var fs = require("fs");
-var App = require('./src/app');
+var TweetFeeder = require('./src/tweetFeeder');
+const userFile = './data/user.txt';
+const tweetFile = './data/tweet.txt';
 
-var app = new App(fs);
+var tweetFeeder = new TweetFeeder(fs);
 
-app.start();
+var userData = fs.readFileSync(userFile, 'utf-8');
+var tweetData = fs.readFileSync(tweetFile, 'utf-8');
+
+console.log(tweetFeeder.processFeed(userData, tweetData));

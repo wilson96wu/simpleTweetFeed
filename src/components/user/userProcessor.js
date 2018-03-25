@@ -1,3 +1,4 @@
+'use strict';
 /**
  * AMD, CommonJS, Global compatible Script Wrapper
  * https://github.com/umdjs/umd
@@ -14,7 +15,7 @@
         module.exports = factory();
     } else {
         // Browser globals (root is window)
-        root.user = factory();
+        root.UserProcessor = factory();
     }
 }(this, function () {
 
@@ -23,11 +24,15 @@
      * this Class is designed to process user data from user.txt file
      */
     var UserData = require('./userData');
-    var ErrorCode = require('./errorCode');
+    var ErrorCode = require('../../enums/errorCode');
 
+    /**
+     * @Constructor Create UserProcessor
+     */
     var UserProcessor = function () {
 
     };
+
     var Pub = UserProcessor.prototype;
 
     /**
@@ -128,7 +133,7 @@
 
         if (userArray[1].trim().match(/^\d/)) {
             //"10006": "USER DATA -- Record followings section starts with a number",
-            throw new Error(ErrorCode['10005']);
+            throw new Error(ErrorCode['10006']);
         }
     };
 

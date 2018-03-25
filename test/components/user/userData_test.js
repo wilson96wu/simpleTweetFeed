@@ -4,8 +4,8 @@
 var chai = require('chai');
 var expect = chai.expect;
 var should = chai.should();
-var UserData = require('../src/userData');
-var ErrorCode = require('../src/errorCode');
+var UserData = require('../../../src/components/user/userData');
+var ErrorCode = require('../../../src/enums/errorCode');
 
 
 describe("UserData test suite", function () {

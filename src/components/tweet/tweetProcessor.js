@@ -1,3 +1,4 @@
+'use strict';
 /**
  * AMD, CommonJS, Global compatible Script Wrapper
  * https://github.com/umdjs/umd
@@ -24,13 +25,16 @@
      */
 
     var TweetData = require('./tweetData');
-    var ErrorCode = require('./errorCode');
-    const MAX_MESSAGE_LENGTH = 140;
+    var ErrorCode = require('../../enums/errorCode');
 
+    /**
+     * @Constructor Create TweetProcessor
+     */
     var TweetProcessor = function () {
     };
 
     var Pub = TweetProcessor.prototype;
+
     /**
      * Public function, Process Tweet Data from tweet.txt file
      * @param {Array} tweetsData - the raw data which represents each line of the text file
@@ -105,26 +109,6 @@
         if (tweet.length !== 2) {
             //"20002": "TWEET DATA -- Record do not have name or message section",
             throw new Error(ErrorCode['20002']);
-        }
-
-        if (tweet[0].trim() === "") {
-            //"20003": "TWEET DATA -- Record do not have a valid name section",
-            throw new Error(ErrorCode['20003']);
-        }
-
-        if (tweet[0].trim().match(/^\d/)) {
-            //"20004": "TWEET DATA -- Record name starts with a number",
-            throw new Error(ErrorCode['20004']);
-        }
-
-        if (tweet[1].trim() === "") {
-            //"20005": "TWEET DATA -- Record do not valid message section",
-            throw new Error(ErrorCode['20005']);
-        }
-
-        if (tweet[1].trim().length > MAX_MESSAGE_LENGTH) {
-            //"20006": "TWEET DATA -- Record message is too long",
-            throw new Error(ErrorCode['20006']);
         }
     };
 

@@ -5,8 +5,8 @@
 var chai = require('chai');
 var expect = chai.expect;
 var should = chai.should();
-var TweetProcessor = require('../src/tweetProcessor');
-var ErrorCode = require('../src/errorCode');
+var TweetProcessor = require('../../../src/components/tweet/tweetProcessor');
+var ErrorCode = require('../../../src/enums/errorCode');
 
 describe("TweetProcess test suite", function () {
 
@@ -27,11 +27,12 @@ describe("TweetProcess test suite", function () {
                 ErrorCode['20007']);
         });
 
-        it("should through an Error if no key word 'follows' in the record", function () {
-            var usersData = [" Alan"];
+        it("should through an Error if no key word '> ' in the record", function () {
+            var testData = [" Alan"];
             should.throw(function () {
-                processor.processData(usersData);
-            });
+                    processor.processData(testData);
+                },
+                ErrorCode['20001']);
         });
     });
 
