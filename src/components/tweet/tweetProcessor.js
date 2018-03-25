@@ -67,7 +67,7 @@
             var message = tweet[1].trim();
             return new TweetData(name, message);
         } catch (e) {
-            console.error(e.message);
+            //console.error(e.message);
             throw e;
         }
     };

@@ -34,7 +34,7 @@
             this.followers = [];
         }
         catch (e){
-            console.error(e.message);
+            //console.error(e.message);
             throw e;
         }
     };
@@ -54,7 +54,7 @@
             }
         }
         catch (e){
-            console.error(e.message);
+            //console.error(e.message);
             throw e;
         }
     };
@@ -72,7 +72,7 @@
             }
         }
         catch (e){
-            console.error(e.message);
+            //console.error(e.message);
             throw e;
         }
     };

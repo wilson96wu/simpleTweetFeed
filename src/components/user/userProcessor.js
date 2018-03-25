@@ -75,7 +75,7 @@
                 follower.addLeader(LeaderName);
             }
         } catch (e) {
-            console.error(e.message);
+            //console.error(e.message);
             throw e;
         }
     };
