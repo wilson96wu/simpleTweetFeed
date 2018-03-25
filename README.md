@@ -33,8 +33,11 @@ Bob
 npm test
 ```
 
-#####Output
+Output
 ```
+
+
+
  Test cases with two tweeters
        ✓ should produce no result if no tweeter and no tweet 
        ✓ should produce no result if no tweet
@@ -63,7 +66,7 @@ npm run test-gulp
 ```
 or simply "gulp" in the projects directory if you have gulp installed globally
 
-#####Output
+Output
 ```
 -----------------------|----------|----------|----------|----------|----------------|
  src/                  |    95.31 |    86.67 |      100 |    95.31 |                |
