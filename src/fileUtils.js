@@ -31,7 +31,7 @@
          * Read file synchronous, separate the text into lines and put into an array.
          * This function handles both CRLF and LR
          * @param {string} fileName - the name of the text file
-         * @param {fileSystem} fileSystem - file system that read and write files
+         * @param {FileSystem} fileSystem - file system that read and write files
          * @return {Array} data - array of all the lines in the text file
          */
         readFile: function (fileName, fileSystem) {
