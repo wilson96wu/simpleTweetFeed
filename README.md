@@ -23,7 +23,9 @@ by any of the tweeters in the list.
 npm install
 
 ```
-Might take a bit long to install, please be patient
+Might take a bit long to install, please be patient.
+But App should be able to run (npm start) without any package installed.
+Need package to run Test and Gulp.
 
 ## Run
 
