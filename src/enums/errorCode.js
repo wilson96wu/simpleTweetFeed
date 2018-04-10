@@ -25,7 +25,7 @@
     /**
      *  Definition of all the Error code
      *  Range of User Error data is between 10001 - 19999
-     *  Range of tweet Error data is between 10001 - 19999
+     *  Range of tweet Error data is between 20001 - 29999
      */
     return {
         "10001": "Error 10001: USER DATA -- Record do not contain keyword ' follows '",
